@@ -5,6 +5,7 @@ Before building with `docker-compose`, create a `.env` file and add the followin
 ```sh
 SYSUSER=<username>
 SYSUSERPASS=<password>
+FTP_DIR=/path/to/ftp/dir
 ```
 
 ## Create an autostart service
