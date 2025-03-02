@@ -68,3 +68,16 @@ FTP_DIR=/path/to/ftp/dir
    ```bash
    journalctl -u docker-compose-app.service
    ```
+
+## Autostart
+
+To configure the service to start on reboot, execute the following:
+```sh
+chmod +x configure-service.sh
+./configure-service.sh ./homelab-ftp-server.service "WorkingDirectory" $(pwd)
+./configure-service.sh ./homelab-ftp-server.service "EnvironmentFile" $(pwd)/.env
+sudo ln -sf "$(pwd)/homelab-ftp-server.service" /etc/systemd/system/homelab-ftp-server.service
+sudo systemctl daemon-reload
+sudo systemctl start homelab-ftp-server.service
+sudo systemctl enable homelab-ftp-server.service
+```
